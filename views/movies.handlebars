@@ -1,0 +1,77 @@
+<h1>Movies</h1>
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Table</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Create Entry</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <!-- tab start -->
+    <div class="container-fluid">         
+      <table class="table table-sm table-striped table-dark" id="movies_table">
+        <thead>
+          <tr>
+            <th>movie_id</th>
+            <th>title</th>
+            <th>genre</th>
+            <th>runtime (in minutes)</th>
+            <th colspan="2">actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>
+                <input type="text" id="filter_movie_id">
+              </td>
+              <td>
+                <input type="text" id="filter_title">
+              </td>
+              <td>
+                <input type="text" id="filter_genre">
+              </td>
+              <td>
+                <input type="text" id="filter_runtime">
+              </td>
+              <td>
+                <button type="button" class="btn btn-info" id="filter_button">Filter</button>
+              </td>
+          </tr>
+        </tbody>
+        <tbody id="movies_rows">
+          {{#if movies}}
+            {{#each movies}}
+          <tr id={{movie_id}}>
+            <td id="td_movie_id{{movie_id}}">{{movie_id}}</td>
+            <td><input type="text" id="input_title{{movie_id}}" value="{{title}}" disabled="true"></td>
+            <td><input type="text" id="input_genre{{movie_id}}" value="{{genre}}" disabled="true"></td>
+            <td><input type="text" id="input_runtime{{movie_id}}" value="{{runtime}}" disabled="true"></td>
+            <td><button type="button" class="btn btn-primary" onclick="edit_entry({{movie_id}});" id="edit{{movie_id}}">Edit</button></td>
+            <td><button type="button" onclick="delete_entry({{movie_id}});" class="btn btn-danger">Delete</button></td>
+          </tr>
+            {{/each}}
+          {{/if}}
+        </tbody>
+      </table>
+    </div>
+    <!-- tab end -->
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <!-- tab start-->
+    <table class="table table-sm table-striped" id="add_table">
+      <thead>
+        <tr>
+          <th>Title</th><th>Genre</th><th>Runtime</th><th></th>
+        </tr>
+      </thead>
+        <tr>
+            <td><input type="text" id="new_title"></td>
+            <td><input type="text" id="new_genre"></td>
+            <td><input type="text" id="new_runtime"></td>
+            <td><button type="button" id="button_add_movie" onclick="add_entry();">Add Movie</button></td>
+        </tr>
+    </table>
+    <!-- tab end-->
+  </div>
+</div>

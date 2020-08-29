@@ -1,0 +1,112 @@
+<h1>Customers</h1>
+<p>For adding, viewing, updating, and removing customers. Viewing customer recently watched, recommendations, payment information. Able to edit payment info</p>
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Table</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Add Customer</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+
+  {{!-- First Tab --}}
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    
+    {{!-- Form for Editing Payment_Information --}}
+    <div id="update_payment_form"></div>
+
+    {{!-- Payment_Information Table for Customers --}}
+    <div>
+      <h5>Payment_Information Table for a Customer ('Details' Button) |<span> customer_id: <span id="id_span"></span></span> | <span>customer_name: <span id="name_span"></span></span> |</h5>
+      <div id="add_pay_div"></div>
+      <div id="insert_payment_form"></div>
+      <table class="table table-sm table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">payment_id</th>
+            <th scope="col">is_primary</th>
+            <th scope="col">first_name</th>
+            <th scope="col">last_name</th>
+            <th scope="col">card_number</th>
+            <th scope="col">billing_address</th>
+            <th scope="col" hidden>customer_id</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="payment_tbody">
+        </tbody>
+      </table>
+    </div>
+
+    {{!-- Recently Watched Movies/Shows for the customer --}}
+    <div id="div_recently_watched"></div>
+
+
+    {{!-- Form to Update Customers --}}
+    <div id="update_Customers_form"></div>
+    
+
+    {{!-- Table to Display Customers --}}
+    <div>
+      <h5>Customers Table</h5>
+      <table class="table table-sm table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">customer_id</th>
+            <th scope="col">first_name</th>
+            <th scope="col">last_name</th>
+            <th scope="col">email</th>
+            <th scope="col">auto_pay</th>
+            <th scope="col">date_until_renew</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="Customers_tbody">
+          {{#each results}}
+          <tr>
+            <th scope="row">{{customer_id}}</th>
+            <td>{{first_name}}</td>
+            <td>{{last_name}}</td>
+            <td>{{email}}</td>
+            <td>{{auto_pay}}</td>
+            <td>{{date_until_renew}}</td>
+            <td><button type="button" class="btn btn-primary btn-sm">Details</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm">Update</button></td>
+            <td><button type="button" class="btn btn-secondary btn-sm">Delete</button></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  {{!-- Second Tab --}}
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <form class="ANC_form" autocomplete="off">
+      <div>
+        <input type="text" name="first_name" id="fName" placeholder="First Name" required>
+        <input type="text" name="last_name" id="lName" placeholder="Last Name" required>
+        <input type="email" name="email" id="mail" placeholder="Email Address" required>        
+      </div>
+      <div>
+        <input type="text" name="card_first_name" id="card_fName" placeholder="First Name on Card" required>
+        <input type="text" name="card_last_name" id="card_lName" placeholder="Last Name on Card" required>
+        <input type="text" name="card_number" id="cNum" placeholder="Card Number" required>
+      </div>
+      <div>
+        <input type="text" name="address" id="ANC_street" placeholder="Street Address" required>
+        <input type="text" name="city" id="ANC_city" placeholder="City" required>
+        <input type="text" name="state" id="ANC_state" placeholder="State" required>
+        <input type="text" name="zip" id="ANC_zip" placeholder="Zip Code" required>
+      </div>
+      <div class="form-action-buttons">
+        <input type="submit">
+      </div>
+    </form>
+  </div>
+
+</div>

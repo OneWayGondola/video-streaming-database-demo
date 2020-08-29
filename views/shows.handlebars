@@ -1,0 +1,93 @@
+<h1>NON FUNCTIONAL</h1>
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Table</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Create Entry</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <!-- tab start -->
+    <div class="container-fluid">
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul> 
+    </div>
+    <div class="container-fluid">         
+      <table class="table table-sm table-striped table-dark">
+        <thead>
+          <tr>
+            <th>show_id</th>
+            <th>title</th>
+            <th>genre</th>
+            <th>episodes</th>
+            <th colspan="2">actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <form><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><button type="button" class="btn btn-info">Filter</button></td><td></td></form>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Kung Fu Panda</td>
+            <td>Animation</td>
+            <td>139</td>
+            <td><button type="button" class="btn-primary">Edit</button></td>
+            <td><button type="button" class="btn btn-danger">Delete</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Star Wars: The Last Jedi</td>
+            <td>Sci-Fi</td>
+            <td>122</td>
+            <td><button type="button" class="btn-primary">Edit</button></td>
+            <td><button type="button" class="btn btn-danger">Delete</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Tron: Legacy</td>
+            <td>Sci-Fi</td>
+            <td>88</td>
+            <td><button type="button" class="btn-primary">Edit</button></td>
+            <td><button type="button" class="btn btn-danger">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container-fluid">
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul> 
+    </div>
+    <!-- tab end -->
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <!-- tab start-->
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th><th>Genre</th><th>Episodes</th><th></th>
+        </tr>
+      </thead>
+      <form>
+        <tr>
+            <td><input type="text" name="title"></td>
+            <td><input type="text" name="genre"></td>
+            <td><input type="text" name="episodes"></td>
+            <td><input type="submit" value="submit"></td>
+        </tr>
+      </form>
+    </table>
+    <!-- tab end-->
+  </div>
+</div>

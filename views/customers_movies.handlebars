@@ -1,0 +1,134 @@
+<h1>Customers_Movies</h1>
+<p>For viewing customer_movies information.</p>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Table</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Create Entry</a>
+    {{!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Update Rating</a> --}}
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <!-- tab start -->
+    <div class="container-fluid">
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul> 
+    </div>
+    <div class="container-fluid">         
+      <table class="table table-sm table-striped table-dark" id="customers_movies_table">
+        <thead>
+          <tr>
+            <th>customer_id</th>
+            <th>movie_id</th>
+            <th>last_watched</th>
+            <th>rating</th>
+            <th colspan="2">actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>
+                <input type="text" id="filter_customer_id">
+              </td>
+              <td>
+                <input type="text" id="filter_movie_id">
+              </td>
+              <td>
+                <input type="text" id="filter_last_watched">
+              </td>
+              <td>
+                <input type="text" id="filter_rating">
+              </td>
+              <td>
+                <button type="button" class="btn btn-info" id="filter_button">Filter</button>
+              </td>
+          </tr>
+        </tbody>
+        <tbody id="customers_movies_rows">
+          {{#if customers_movies}}
+            {{#each customers_movies}}
+          <tr id='{{customer_id}}.{{movie_id}}'>
+            <td>{{customer_id}}</td>
+            <td>{{movie_id}}</td>
+            <td>{{last_watched}}</td>
+            <td><input type="text" id="input_rating{{customer_id}}.{{movie_id}}" value="{{rating}}" disabled="true"></td>
+            <td><button type="button" class="btn-primary" onclick="edit_entry({{customer_id}}, {{movie_id}});" id="edit{{customer_id}}.{{movie_id}}">Edit</button></td>
+            <td><button type="button" onclick="delete_entry({{customer_id}}, {{movie_id}});" class="btn btn-danger">Delete</button></td>
+          </tr>
+            {{/each}}
+          {{/if}}
+        </tbody>
+      </table>
+    </div>
+    <div class="container-fluid">
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul> 
+    </div>
+    <!-- tab end -->
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <!-- tab start-->
+    <p>Note: Updates last_watched by inserting pre existing email/movie combination.</p>
+    <form onsubmit="event.preventDefault();">
+      <div class="form-group">
+        <label for="email_select">Email Select</label>
+        <select multiple class="form-control" id="email_select">
+          {{#each customers}}
+          <option value="{{customer_id}}">{{customer_id}}: {{email}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="movie_select">Movie Select</label>
+        <select multiple class="form-control" id="movie_select">
+          {{#each movies}}
+          <option value="{{movie_id}}">{{movie_id}}: {{title}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" id="submit_relation">Insert Customer-Movie Relation</button>
+    </form>
+    <!-- tab end-->
+  </div>
+
+  
+  {{!-- <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <!-- tab start-->
+    <p>This is for changing ratings for pre existing rows in the relationship table.</p>
+    <form onsubmit="event.preventDefault();">
+      <div class="form-group">
+        <label for="email_select_2">Email Select</label>
+        <select multiple class="form-control" id="email_select_2">
+          {{#each cids_ems}}
+          <option value="{{customer_id}}">{{customer_id}}: {{email}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="movie_select_2">Movie Select</label>
+        <select multiple class="form-control" id="movie_select_2">
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="rating_select">Rating Select</label>
+        <select multiple class="form-control" id="rating_select">
+          <option value="0">0</option>
+          <option value="1">1</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" id="submit_rating_update">Insert Customer-Movie Relation</button>
+    </form>
+    <!-- tab end-->
+  </div> --}}
+
+</div>

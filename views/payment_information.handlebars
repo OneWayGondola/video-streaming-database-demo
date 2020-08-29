@@ -1,0 +1,45 @@
+<h1>Payment_Information</h1>
+<p>For viewing customer payment information.</p>
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Table</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">About Payment_Information</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <table class="table table-sm table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col">payment_id</th>
+          <th scope="col">is_primary</th>
+          <th scope="col">first_name</th>
+          <th scope="col">last_name</th>
+          <th scope="col">card_number</th>
+          <th scope="col">billing_address</th>
+          <th scope="col">customer_id</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each results}}
+        <tr>
+          <th scope="row">{{payment_id}}</th>
+          <td>{{is_primary}}</td>
+          <td>{{first_name}}</td>
+          <td>{{last_name}}</td>
+          <td>{{card_number}}</td>
+          <td>{{billing_address}}</td>
+          <td>{{customer_id}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est ipsa ullam aliquam officiis, at consequuntur?</p>
+  </div>
+
+</div>
